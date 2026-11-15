@@ -6,53 +6,88 @@
 <title>Martin Pocket Signals Bot — Subscriptions</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background:#0f0f0f;
     color:#e8e8e8;
-    min-height:100vh;
+    line-height:1.5;
   }
+
+  /* ===== STICKY HEADER ===== */
   header {
-    padding:32px 24px;
-    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(15,15,15,0.95);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.08);
+    padding:16px 24px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
   }
-  header h1 {
-    font-size:22px;
+  .logo {
+    font-size:16px;
     letter-spacing:2px;
     text-transform:uppercase;
     color:#fff;
+    font-weight:700;
   }
-  header h1 span { color:#FF851B; }
-  header p {
-    margin-top:8px;
-    color:#888;
-    font-size:14px;
-  }
-  nav {
-    margin-top:16px;
-  }
+  .logo span { color:#FF851B; }
+  nav { display:flex; gap:8px; }
   nav a {
-    color:#FF851B;
+    color:#ccc;
     text-decoration:none;
-    font-size:14px;
-    margin:0 12px;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:8px 14px;
+    border-radius:6px;
+    border:1px solid transparent;
+    transition:all 0.2s;
   }
-  nav a:hover { text-decoration:underline; }
+  nav a:hover {
+    color:#FF851B;
+    border-color:rgba(255,133,27,0.3);
+    background:rgba(255,133,27,0.05);
+  }
 
-  .container {
+  /* ===== SECTIONS ===== */
+  section {
+    padding:64px 24px;
     max-width:1200px;
     margin:0 auto;
-    padding:48px 24px 80px;
+    scroll-margin-top:80px;
   }
-  .section-title {
+  .divider-label {
     text-align:center;
-    font-size:14px;
-    letter-spacing:3px;
+    font-size:12px;
+    letter-spacing:4px;
     text-transform:uppercase;
-    color:#888;
-    margin-bottom:32px;
+    color:#FF851B;
+    margin-bottom:8px;
   }
+  .divider-line {
+    width:60px;
+    height:2px;
+    background:rgba(255,133,27,0.4);
+    margin:0 auto 40px;
+  }
+  .intro {
+    text-align:center;
+    color:#999;
+    font-size:15px;
+    margin-bottom:40px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ===== PRICING GRID ===== */
   .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
@@ -63,15 +98,15 @@
     border:1px solid rgba(255,255,255,0.1);
     border-radius:12px;
     padding:28px 22px;
-    position:relative;
-    transition:all 0.2s ease;
     display:flex;
     flex-direction:column;
+    transition:all 0.25s ease;
+    position:relative;
   }
   .card:hover {
     border-color:rgba(255,133,27,0.5);
-    transform:translateY(-3px);
-    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,0.5);
   }
   .card.recommended {
     border-color:#3D9970;
@@ -79,7 +114,7 @@
   }
   .card.recommended:hover {
     border-color:#3D9970;
-    box-shadow:0 8px 24px rgba(61,153,112,0.2);
+    box-shadow:0 12px 32px rgba(61,153,112,0.25);
   }
   .badge {
     display:inline-block;
@@ -90,6 +125,7 @@
     border-radius:4px;
     margin-bottom:16px;
     align-self:flex-start;
+    font-weight:600;
   }
   .badge.beginner {
     background:rgba(0,46,217,0.15);
@@ -101,12 +137,14 @@
     color:#4dd9a0;
     border:1px solid rgba(77,217,160,0.5);
   }
+  .badge-spacer { height:26px; }
   .plan-name {
     font-size:12px;
     letter-spacing:2px;
     text-transform:uppercase;
     color:#999;
     margin-bottom:12px;
+    font-weight:600;
   }
   .price {
     font-size:42px;
@@ -124,35 +162,144 @@
     font-size:13px;
     color:#3D9970;
     margin-top:8px;
-    margin-bottom:20px;
     min-height:18px;
+    font-weight:500;
   }
   .period {
     font-size:13px;
     color:#888;
     margin-bottom:24px;
+    margin-top:4px;
   }
   .btn {
     display:block;
     text-align:center;
-    padding:12px 16px;
+    padding:13px 16px;
     border-radius:6px;
     background:#FF851B;
     color:#0f0f0f;
     text-decoration:none;
-    font-weight:600;
+    font-weight:700;
     font-size:14px;
     letter-spacing:0.5px;
     transition:background 0.2s;
     margin-top:auto;
   }
   .btn:hover { background:#ffa04d; }
-  .card.recommended .btn {
-    background:#3D9970;
-    color:#fff;
-  }
+  .card.recommended .btn { background:#3D9970; color:#fff; }
   .card.recommended .btn:hover { background:#4db584; }
 
+  .already {
+    text-align:center;
+    margin-top:36px;
+    font-size:14px;
+    color:#888;
+  }
+  .already a { color:#FF851B; text-decoration:none; }
+  .already a:hover { text-decoration:underline; }
+
+  /* ===== HELP SECTION ===== */
+  .step {
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .step:last-child { border-bottom:none; }
+  .step-num {
+    flex-shrink:0;
+    width:32px; height:32px;
+    border-radius:50%;
+    background:rgba(255,133,27,0.15);
+    color:#FF851B;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:14px;
+  }
+  .step-text { color:#ccc; font-size:15px; }
+  .step-text a { color:#FF851B; text-decoration:none; }
+  .step-text a:hover { text-decoration:underline; }
+
+  .sub-heading {
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#FF851B;
+    margin-bottom:16px;
+    margin-top:40px;
+  }
+  .sub-heading:first-child { margin-top:0; }
+
+  .info-box {
+    background:rgba(61,153,112,0.08);
+    border:1px solid rgba(61,153,112,0.3);
+    border-radius:10px;
+    padding:20px;
+    color:#ccc;
+    font-size:15px;
+  }
+  .info-box strong { color:#4dd9a0; }
+
+  /* ===== ACCORDION FAQ ===== */
+  .faq-item {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    margin-bottom:10px;
+    overflow:hidden;
+    transition:border-color 0.2s;
+  }
+  .faq-item:hover { border-color:rgba(255,133,27,0.3); }
+  .faq-q {
+    padding:16px 20px;
+    cursor:pointer;
+    font-weight:600;
+    color:#fff;
+    font-size:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    user-select:none;
+  }
+  .faq-q::after {
+    content:"+";
+    color:#FF851B;
+    font-size:20px;
+    font-weight:400;
+    transition:transform 0.25s;
+    line-height:1;
+  }
+  .faq-item.open .faq-q::after { content:"−"; }
+  .faq-a {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease, padding 0.3s ease;
+    color:#aaa;
+    font-size:14px;
+    padding:0 20px;
+  }
+  .faq-item.open .faq-a {
+    max-height:300px;
+    padding:0 20px 16px;
+  }
+
+  .contact-btn {
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:8px;
+    background:#FF851B;
+    color:#0f0f0f;
+    text-decoration:none;
+    font-weight:700;
+    font-size:15px;
+    margin-top:12px;
+    transition:background 0.2s;
+  }
+  .contact-btn:hover { background:#ffa04d; }
+
+  /* ===== FOOTER ===== */
   footer {
     text-align:center;
     padding:24px;
@@ -162,21 +309,57 @@
   }
   footer a { color:#FF851B; text-decoration:none; }
   footer a:hover { text-decoration:underline; }
+
+  /* ===== BACK TO TOP ===== */
+  .to-top {
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:#FF851B;
+    color:#0f0f0f;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:700;
+    box-shadow:0 4px 16px rgba(255,133,27,0.4);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.3s;
+    z-index:99;
+  }
+  .to-top.show { opacity:1; pointer-events:auto; }
+  .to-top:hover { background:#ffa04d; }
+
+  /* ===== MOBILE ===== */
+  @media (max-width:600px) {
+    header { padding:12px 16px; }
+    .logo { font-size:14px; letter-spacing:1.5px; }
+    nav a { font-size:11px; padding:6px 10px; }
+    section { padding:48px 16px; }
+    .price { font-size:36px; }
+    .divider-label { font-size:11px; letter-spacing:3px; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Martin <span>Pocket</span> Signals Bot</h1>
-  <p>Professional trading signals · Subscription plans</p>
+  <div class="logo">Martin <span>Pocket</span> Signals Bot</div>
   <nav>
-    <a href="index.html">Subscriptions</a>
-    <a href="support.html">Help &amp; Support</a>
+    <a href="#subscriptions">Subscriptions</a>
+    <a href="#support">Help &amp; Support</a>
   </nav>
 </header>
 
-<div class="container">
-  <div class="section-title">Choose your plan</div>
+<!-- ===== SUBSCRIPTIONS ===== -->
+<section id="subscriptions">
+  <div class="divider-label">Subscriptions</div>
+  <div class="divider-line"></div>
+  <p class="intro">Choose the plan that fits you. Every plan includes full access to real-time trading signals and direct Telegram support.</p>
+
   <div class="grid">
 
     <div class="card">
@@ -189,7 +372,7 @@
     </div>
 
     <div class="card">
-      <div style="height:26px;"></div>
+      <div class="badge-spacer"></div>
       <div class="plan-name">Quarterly</div>
       <div class="price">$75<span>/3mo</span></div>
       <div class="per-month">$25 per month</div>
@@ -198,7 +381,7 @@
     </div>
 
     <div class="card">
-      <div style="height:26px;"></div>
+      <div class="badge-spacer"></div>
       <div class="plan-name">Half-Year</div>
       <div class="price">$110<span>/6mo</span></div>
       <div class="per-month">≈ $18.33 per month</div>
@@ -216,11 +399,99 @@
     </div>
 
   </div>
-</div>
+
+  <p class="already">Already subscribed? <a href="https://t.me/JAMES_AI_TRADING_BOT" target="_blank" rel="noopener">Message me on Telegram →</a></p>
+</section>
+
+<!-- ===== HELP & SUPPORT ===== -->
+<section id="support">
+  <div class="divider-label">Help &amp; Support</div>
+  <div class="divider-line"></div>
+
+  <div class="sub-heading">How to Subscribe</div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-text">Scroll up to the <a href="#subscriptions">Subscriptions</a> section and choose the plan that fits you.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-text">Click the <strong>Subscribe</strong> button on that plan. Telegram will open with a message already prepared for you.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-text">Press <strong>Send</strong> in Telegram. The message will reach me with your selected plan and amount.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-text">I will reply and guide you through the next step to complete the payment and activate your subscription.</div>
+  </div>
+
+  <div class="sub-heading">How Signals Are Delivered</div>
+
+  <div class="info-box">
+    After your subscription is confirmed, you will be added to my <strong>private Telegram signals group</strong>. All trading signals — entry points, targets, and updates — are posted there in real time. You will also be able to message me directly on Telegram for any questions.
+  </div>
+
+  <div class="sub-heading">Frequently Asked Questions</div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I pay after clicking Subscribe?</div>
+    <div class="faq-a">Once you send the Telegram message, I will guide you personally. Payment is completed through Telegram using the method we agree on (mobile money or other supported options).</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">When does my subscription start?</div>
+    <div class="faq-a">Your subscription starts the moment your payment is confirmed and you are added to the signals group. You'll receive a confirmation message from me.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I switch plans later?</div>
+    <div class="faq-a">Yes. Just message me on Telegram and I will help you move to a different plan at any time.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I contact you?</div>
+    <div class="faq-a">The fastest way is Telegram — click the button below and send me a message. I usually reply within a few hours.</div>
+  </div>
+
+  <div class="sub-heading">Contact via Telegram</div>
+  <a class="contact-btn" href="https://t.me/JAMES_AI_TRADING_BOT" target="_blank" rel="noopener">Message me on Telegram</a>
+
+</section>
 
 <footer>
-  © Martin Pocket Signals Bot · <a href="support.html">Help &amp; Support</a>
+  © Martin Pocket Signals Bot · <a href="#subscriptions">Subscriptions</a> · <a href="#support">Help &amp; Support</a>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+  // Accordion FAQ
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top button
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 600) {
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  });
+  toTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 
 </body>
 </html>
