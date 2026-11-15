@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Pocket Signals Bot — Subscriptions</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background:#0f0f0f;
+    color:#e8e8e8;
+    min-height:100vh;
+  }
+  header {
+    padding:32px 24px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  header h1 {
+    font-size:22px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#fff;
+  }
+  header h1 span { color:#FF851B; }
+  header p {
+    margin-top:8px;
+    color:#888;
+    font-size:14px;
+  }
+  nav {
+    margin-top:16px;
+  }
+  nav a {
+    color:#FF851B;
+    text-decoration:none;
+    font-size:14px;
+    margin:0 12px;
+  }
+  nav a:hover { text-decoration:underline; }
+
+  .container {
+    max-width:1200px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .section-title {
+    text-align:center;
+    font-size:14px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#888;
+    margin-bottom:32px;
+  }
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:20px;
+  }
+  .card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+    padding:28px 22px;
+    position:relative;
+    transition:all 0.2s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .card:hover {
+    border-color:rgba(255,133,27,0.5);
+    transform:translateY(-3px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .card.recommended {
+    border-color:#3D9970;
+    background:rgba(61,153,112,0.06);
+  }
+  .card.recommended:hover {
+    border-color:#3D9970;
+    box-shadow:0 8px 24px rgba(61,153,112,0.2);
+  }
+  .badge {
+    display:inline-block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:5px 10px;
+    border-radius:4px;
+    margin-bottom:16px;
+    align-self:flex-start;
+  }
+  .badge.beginner {
+    background:rgba(0,46,217,0.15);
+    color:#5b8dff;
+    border:1px solid rgba(91,141,255,0.4);
+  }
+  .badge.recommended {
+    background:rgba(61,153,112,0.2);
+    color:#4dd9a0;
+    border:1px solid rgba(77,217,160,0.5);
+  }
+  .plan-name {
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#999;
+    margin-bottom:12px;
+  }
+  .price {
+    font-size:42px;
+    font-weight:700;
+    color:#fff;
+    line-height:1;
+  }
+  .price span {
+    font-size:16px;
+    color:#888;
+    font-weight:400;
+    margin-left:4px;
+  }
+  .per-month {
+    font-size:13px;
+    color:#3D9970;
+    margin-top:8px;
+    margin-bottom:20px;
+    min-height:18px;
+  }
+  .period {
+    font-size:13px;
+    color:#888;
+    margin-bottom:24px;
+  }
+  .btn {
+    display:block;
+    text-align:center;
+    padding:12px 16px;
+    border-radius:6px;
+    background:#FF851B;
+    color:#0f0f0f;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.5px;
+    transition:background 0.2s;
+    margin-top:auto;
+  }
+  .btn:hover { background:#ffa04d; }
+  .card.recommended .btn {
+    background:#3D9970;
+    color:#fff;
+  }
+  .card.recommended .btn:hover { background:#4db584; }
+
+  footer {
+    text-align:center;
+    padding:24px;
+    font-size:13px;
+    color:#666;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer a { color:#FF851B; text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Martin <span>Pocket</span> Signals Bot</h1>
+  <p>Professional trading signals · Subscription plans</p>
+  <nav>
+    <a href="index.html">Subscriptions</a>
+    <a href="support.html">Help &amp; Support</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="section-title">Choose your plan</div>
+  <div class="grid">
+
+    <div class="card">
+      <span class="badge beginner">Best for Beginners</span>
+      <div class="plan-name">Monthly</div>
+      <div class="price">$45<span>/mo</span></div>
+      <div class="per-month">$45 per month</div>
+      <div class="period">Billed monthly</div>
+      <a class="btn" href="https://t.me/JAMES_AI_TRADING_BOT?text=Hi%20Martin%2C%20I%20have%20selected%20the%20Monthly%20plan%20(%2445)%20and%20I%27m%20ready%20to%20proceed.%20Please%20guide%20me%20on%20the%20next%20step%20to%20complete%20my%20subscription." target="_blank" rel="noopener">Subscribe</a>
+    </div>
+
+    <div class="card">
+      <div style="height:26px;"></div>
+      <div class="plan-name">Quarterly</div>
+      <div class="price">$75<span>/3mo</span></div>
+      <div class="per-month">$25 per month</div>
+      <div class="period">Billed every 3 months</div>
+      <a class="btn" href="https://t.me/JAMES_AI_TRADING_BOT?text=Hi%20Martin%2C%20I%20have%20selected%20the%20Quarterly%20plan%20(%2475)%20and%20I%27m%20ready%20to%20proceed.%20Please%20guide%20me%20on%20the%20next%20step%20to%20complete%20my%20subscription." target="_blank" rel="noopener">Subscribe</a>
+    </div>
+
+    <div class="card">
+      <div style="height:26px;"></div>
+      <div class="plan-name">Half-Year</div>
+      <div class="price">$110<span>/6mo</span></div>
+      <div class="per-month">≈ $18.33 per month</div>
+      <div class="period">Billed every 6 months</div>
+      <a class="btn" href="https://t.me/JAMES_AI_TRADING_BOT?text=Hi%20Martin%2C%20I%20have%20selected%20the%20Half-Year%20plan%20(%24110)%20and%20I%27m%20ready%20to%20proceed.%20Please%20guide%20me%20on%20the%20next%20step%20to%20complete%20my%20subscription." target="_blank" rel="noopener">Subscribe</a>
+    </div>
+
+    <div class="card recommended">
+      <span class="badge recommended">Recommended</span>
+      <div class="plan-name">Annual</div>
+      <div class="price">$150<span>/yr</span></div>
+      <div class="per-month">≈ $12.50 per month · Best Value</div>
+      <div class="period">Billed every 12 months</div>
+      <a class="btn" href="https://t.me/JAMES_AI_TRADING_BOT?text=Hi%20Martin%2C%20I%20have%20selected%20the%20Annual%20plan%20(%24150)%20and%20I%27m%20ready%20to%20proceed.%20Please%20guide%20me%20on%20the%20next%20step%20to%20complete%20my%20subscription." target="_blank" rel="noopener">Subscribe</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © Martin Pocket Signals Bot · <a href="support.html">Help &amp; Support</a>
+</footer>
+
+</body>
+</html>
